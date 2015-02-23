@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>打砖块</title>
+	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<style>body{ text-align:center} 
+	canvas{border: 2px solid #333}</style>
+
+</head>
+
+<body>
+	<H1>打砖块</H1>
+	<p>按空格键开始/暂停</p>
+	<canvas id="myCanvas" >Your browser does not support canvas</canvas>
+
+	<script src="pingpong.js"></script>
+	<script type="text/javascript">
+		var container=document.getElementById('myCanvas');
+		var game=new pingpong(container);//创建一个新的游戏实例
+		game.run();//游戏运行
+	</script>
+</body>
+
+</html>
