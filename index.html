@@ -17,7 +17,11 @@
 	<script src="pingpong.js"></script>
 	<script type="text/javascript">
 		var container=document.getElementById('myCanvas');
-		var game=new pingpong(container);//创建一个新的游戏实例
+
+		//创建一个新的游戏实例
+		var game=new pingpong(container,function(){
+			window.location.reload(true);//刷新页面
+		});//回调函数在游戏结束后运行
 		game.run();//游戏运行
 	</script>
 </body>
