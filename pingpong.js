@@ -13,18 +13,20 @@ var pingpong=function(){
     var context;//canvas的context
     var rd=false,ld=false;//布尔型，指示键盘左右键是否被按下
     var pause=true; //是否开始的标志
+    var stop_callBack;//结束后的回调函数
 
     /**
      * Stage类，初始化一些闭包外面的变量以及实例化需要用到的类
      * @param {[type]}  canvas DOM元素
      */
-    var Stage=function(ct){ 
+    var Stage=function(ct,f){ 
         'use strict'
         //初始化一些闭包外面的变量
         container=ct;
         context=container.getContext('2d')
         height=container.height=600;
         width=container.width=600;
+        stop_callBack=f;//结束后的回调函数
 
         var ballPos=this.initialPos();
         //构造一个球的示例，半径为8
@@ -155,6 +157,12 @@ var pingpong=function(){
             ? this.ball.dy=-this.ball.dy : this.stop("Game Over");
         }         
     }
+    /**
+     * [stop description]
+     * @param  {[type]} str 显示的字符串，分为失败与成功两种情况。
+     * @param  {[type]} f   回调函数
+     * @return {[type]}     [description]
+     */
     Stage.prototype.stop=function(str){
         context.font="30px Verdana";
         // 创建渐变
@@ -167,6 +175,7 @@ var pingpong=function(){
         context.fillText(str,220,380);
 
         clearInterval(this.st);
+        stop_callBack();
     }
     //TODO:检测球是否和砖块发生碰撞。若碰撞则将该砖块的存在值置为0，并且球反弹
     Stage.prototype.detectHitBricks=function(){
