@@ -20,7 +20,10 @@
 
 		//创建一个新的游戏实例
 		var game=new pingpong(container,function(){
-			window.location.reload(true);//刷新页面
+			setTimeout(function(){
+				window.location.reload(true);//2秒后刷新页面
+			},2000)
+			
 		});//回调函数在游戏结束后运行
 		game.run();//游戏运行
 	</script>
