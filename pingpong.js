@@ -200,7 +200,7 @@ var pingpong=function(){
     //砖块数越少，ball的dx、dy要增加
     Stage.prototype.speedUp=function(){
         var speedIncreasement=(this.bricks.row-Math.ceil(this.bricks.num/this.bricks.col))*0.001;
-        console.log('speed:',Math.abs(this.ball.dx), Math.abs(this.ball.dy))
+        // console.log('speed:',Math.abs(this.ball.dx), Math.abs(this.ball.dy))
         this.ball.dx>0?(this.ball.dx += speedIncreasement):(this.ball.dx -= speedIncreasement);
         this.ball.dy>0?(this.ball.dy += speedIncreasement):(this.ball.dy -= speedIncreasement);
     }
